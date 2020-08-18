@@ -1,0 +1,15 @@
+<mat-toolbar>List of Suites:</mat-toolbar>
+<ul class="Suites">
+  <mat-nav-list role="navigation">
+    <li *ngFor="let suite of suites">
+      <a
+        [class.is_root]="suite?.parentid == null"
+        mat-list-item
+        [class.is_child]="suite?.parentid != null"
+        routerLink="/suite/{{ suite?.id }}"
+        class="badge"
+        >{{ suite?.name }}
+      </a>
+    </li>
+  </mat-nav-list>
+</ul>

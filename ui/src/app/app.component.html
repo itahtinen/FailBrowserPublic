@@ -1,0 +1,15 @@
+<h1>FailBrowser</h1>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link routerLink="/">Home</a>
+  <a mat-tab-link routerLink="/about">About</a>
+  <a mat-tab-link routerLink="/suites"> Suites</a>
+  <input
+    mat-input
+    type="text"
+    (keyup)="searchChange($event)"
+    placeholder="Search.."
+    name="search"
+    value="{{ searchInputString }}"
+  />
+</nav>
+<router-outlet></router-outlet>

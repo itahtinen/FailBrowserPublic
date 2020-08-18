@@ -1,0 +1,33 @@
+<mat-table class="sample" [dataSource]="samples">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell class="sample" *matCellDef="let sample">
+      {{ sample.name }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell class="sample" *matCellDef="let sample">
+      {{ sample.status }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="source">
+    <mat-header-cell *matHeaderCellDef>Log</mat-header-cell>
+    <mat-cell class="sample" *matCellDef="let sample">
+      {{ sample.log.name }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="time">
+    <mat-header-cell *matHeaderCellDef>Time generated</mat-header-cell>
+    <mat-cell class="sample" *matCellDef="let sample">
+      {{ sample.log.generated }}
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

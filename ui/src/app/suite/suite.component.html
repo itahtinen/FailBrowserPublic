@@ -1,0 +1,4 @@
+<mat-toolbar *ngIf="suite">Name: {{ suite.name }}</mat-toolbar>
+<ul class="Suites">
+  <app-case *ngFor="let case of cases" [case]="case"> </app-case>
+</ul>

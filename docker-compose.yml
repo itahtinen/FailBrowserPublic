@@ -1,0 +1,44 @@
+version: "3.7"
+services:
+  db:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: fbrowser
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+    networks:
+      - fbr
+  backend:
+    image: fbrowserimg
+    ports:
+      - 4200:80
+    links:
+      - db:db
+    networks:
+      - fbr
+    environment:
+      - FBConnectionStrings__DefaultConnection=Host=%haje;Port=5432;Username=masteruser;Password=QwertY1234;Database=fbdb
+  feeder:
+    image: fbfeederimg
+    ports:
+      - 5000:5000
+    networks:
+      - fbr
+    environment:
+      - FB_PY_DB_USER=masteruser
+      - FB_PY_DB_PASS=QwertY1234
+      - FB_PY_DB_HOST=?
+      - FB_PY_DB_PORT=5432
+      - FB_PY_DB_DATABASE=fbdb
+    
+
+volumes:
+  db-data:
+networks:
+  fbr:
+
+
