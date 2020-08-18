@@ -6,6 +6,7 @@ NOTE! This version of failbrowser does not include demo data.
 
 ## Prerequisites
 
+- Node
 - Docker
 - AWS user
 - AWS CLI
